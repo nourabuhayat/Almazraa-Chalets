@@ -1,0 +1,158 @@
+/* Custom CSS for Mazraa Chalets */
+
+/* Color Variables */
+:root {
+    --light-blue: #6AADDE; /* الأزرق الفاتح */
+    --dark-blue: #1A4B84;  /* الأزرق الغامق */
+    --light-red: #FF6B6B;  /* الأحمر الفاتح */
+    --dark-yellow: #E6B800; /* الأصفر الغامق */
+    --white: #FFFFFF;
+    --black: #000000;
+    --gray: #F1F1F1;
+}
+
+/* RTL Support */
+*[dir="rtl"] {
+    text-align: right;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--dark-blue);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--light-blue);
+}
+
+/* Custom Animations */
+.hover-float {
+    transition: transform 0.3s ease;
+}
+
+.hover-float:hover {
+    transform: translateY(-5px);
+}
+
+/* Custom Styles for Hero Section */
+.hero-gradient {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7));
+}
+
+/* Custom Button Styles */
+.btn-primary {
+    @apply bg-[#6AADDE] text-white font-bold py-2 px-6 rounded-full transition duration-300;
+}
+
+.btn-primary:hover {
+    @apply bg-[#1A4B84] transform scale-105;
+}
+
+.btn-secondary {
+    @apply bg-[#FF6B6B] text-white font-bold py-2 px-6 rounded-full transition duration-300;
+}
+
+.btn-secondary:hover {
+    @apply bg-[#E6B800] transform scale-105;
+}
+
+/* Image Gallery Styles */
+.gallery-item {
+    overflow: hidden;
+    border-radius: 0.5rem;
+}
+
+.gallery-item img {
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Feature Card Styles */
+.feature-card {
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Testimonial Card Styles */
+.testimonial-card {
+    transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Booking Form Styles */
+.form-input {
+    @apply w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#6AADDE] focus:border-transparent;
+}
+
+.form-label {
+    @apply block text-gray-700 font-medium mb-2;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-content p {
+        font-size: 1.125rem;
+    }
+}
+
+/* Animation Classes */
+.fade-in {
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.slide-up {
+    animation: slideUp 0.8s ease-in-out;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Custom Utilities */
+.text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.bg-blur {
+    backdrop-filter: blur(8px);
+}
