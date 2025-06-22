@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شاليه 2 - شاليهات المزرعة</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'sky-blue': '#6AADDE',  /* الأزرق الفاتح */
+                        'dark-blue': '#1A4B84', /* الأزرق الغامق */
+                        'light-red': '#FF6B6B', /* الأحمر الفاتح */
+                        'dark-yellow': '#E6B800', /* الأصفر الغامق */
+                        'cream': '#FFFDD0',
+                    },
+                    fontFamily: {
+                        'tajawal': ['Tajawal', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts - Tajawal (خط عربي جميل) -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    
+    <!-- Swiper Slider CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+    
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        .swiper {
+            width: 100%;
+            height: 500px;
+        }
+        
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .amenity-icon {
+            font-size: 1.5rem;
+            color: #87CEEB;
+            margin-left: 0.5rem;
+        }
+    </style>
+</head>
+<body class="bg-cream">
+    <!-- Header & Navigation -->
+    <header>
+        <!-- Navigation Bar -->
+        <nav class="bg-white bg-opacity-90 shadow-md sticky top-0 z-50">
+            <div class="container mx-auto px-4">
+                <div class="flex justify-between items-center py-4">
+                    <!-- Logo -->
+                    <div class="text-2xl font-bold text-leaf-green">
+                        <a href="../index.html" class="flex items-center">
+                            <img src="../images/logo.png" alt="شعار شاليهات المزرعة" class="h-12 ml-2">
+                            <span>شاليهات المزرعة</span>
+                        </a>
+                    </div>
+                    
+                    <!-- Desktop Navigation -->
+                    <div class="hidden md:flex space-x-8 space-x-reverse">
+                        <a href="../index.html" class="text-gray-700 font-medium hover:text-sky-blue transition duration-300">الرئيسية</a>
+                        <a href="chalet1.html" class="text-leaf-green font-medium hover:text-sky-blue transition duration-300">شاليه 1</a>
+                        <a href="chalet2.html" class="text-gray-700 font-medium hover:text-sky-blue transition duration-300">شاليه 2</a>
+                        <a href="villa.html" class="text-gray-700 font-medium hover:text-sky-blue transition duration-300">فيلا المزرعة</a>
+                        <a href="booking.html" class="text-gray-700 font-medium hover:text-sky-blue transition duration-300">الحجوزات</a>
+                        <a href="about.html" class="text-gray-700 font-medium hover:text-sky-blue transition duration-300">من نحن</a>
+                        <a href="contact.html" class="text-gray-700 font-medium hover:text-sky-blue transition duration-300">تواصل معنا</a>
+                    </div>
+                    
+                    <!-- Mobile Menu Button -->
+                    <div class="md:hidden">
+                        <button id="mobile-menu-button" class="text-gray-700 hover:text-sky-blue focus:outline-none">
+                            <i class="fas fa-bars text-2xl"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Mobile Navigation Menu (Hidden by default) -->
+                <div id="mobile-menu" class="md:hidden hidden pb-4">
+                    <a href="../index.html" class="block py-2 text-gray-700 font-medium hover:text-sky-blue">الرئيسية</a>
+                    <a href="chalet1.html" class="block py-2 text-leaf-green font-medium">شاليه 1</a>
+                    <a href="chalet2.html" class="block py-2 text-gray-700 font-medium hover:text-sky-blue">شاليه 2</a>
+                    <a href="villa.html" class="block py-2 text-gray-700 font-medium hover:text-sky-blue">فيلا المزرعة</a>
+                    <a href="booking.html" class="block py-2 text-gray-700 font-medium hover:text-sky-blue">الحجوزات</a>
+                    <a href="about.html" class="block py-2 text-gray-700 font-medium hover:text-sky-blue">من نحن</a>
+                    <a href="contact.html" class="block py-2 text-gray-700 font-medium hover:text-sky-blue">تواصل معنا</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Main Content -->
+    <main>
+        <!-- Chalet Title Section -->
+        <section class="py-12 bg-white">
+            <div class="container mx-auto px-4">
+                <h1 class="text-4xl font-bold text-center text-leaf-green mb-6" data-aos="fade-up">شاليه 2</h1>
+                <p class="text-xl text-center text-gray-700 max-w-3xl mx-auto mb-8" data-aos="fade-up" data-aos-delay="100">
+                    شاليه فاخر مع إطلالة بحرية ومسبح خاص، مثالي للعائلات والأزواج الباحثين عن الخصوصية والراحة.
+                </p>
+                <div class="flex justify-center" data-aos="fade-up" data-aos-delay="200">
+                    <a href="#" class="bg-sky-blue hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105">
+                        احجز الآن
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Image Gallery Slider -->
+        <section class="py-12 bg-sky-blue bg-opacity-10">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-8 text-leaf-green" data-aos="fade-up">معرض الصور</h2>
+                
+                <!-- Swiper Slider -->
+                <div class="swiper mySwiper" data-aos="fade-up" data-aos-delay="100">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="../images/chalet2-1.jpg" alt="صورة شاليه 1">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="../images/chalet2-2.jpg" alt="صورة شاليه 1">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="../images/chalet2-3.jpg" alt="صورة شاليه 1">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="../images/chalet2-4.jpg" alt="صورة شاليه 1">
+                        </div>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </section>
+      <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@almazraa_chalets/video/7512527809722567954" data-video-id="7512527809722567954" style="max-width: 605px;min-width: 325px;">
+  <section>
+    <a target="_blank" title="@almazraa_chalets" href="https://www.tiktok.com/@almazraa_chalets?refer=embed">@almazraa_chalets</a>
+  </section>
+</blockquote>
+<script async src="https://www.tiktok.com/embed.js"></script>
+
+
+        
+        <!-- Features & Amenities -->
+        <section class="py-12 bg-sky-blue bg-opacity-10">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-8 text-leaf-green" data-aos="fade-up">المميزات والمرافق</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <!-- Features Table -->
+                    <div class="bg-white p-6 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="100">
+                        <h3 class="text-xl font-bold mb-4 text-leaf-green">تفاصيل الشاليه</h3>
+                        <table class="w-full">
+                            <tbody>
+                                <tr class="border-b border-gray-200">
+                                    <td class="py-3 font-medium">مطبخ </td>
+                                    <td class="py-3"></td>
+                                </tr>
+                                <tr class="border-b border-gray-200">
+                                    <td class="py-3 font-medium"> غرفتين نوم</td>
+                                    <td class="py-3"></td>
+                                </tr>
+                                <tr class="border-b border-gray-200">
+                                    <td class="py-3 font-medium">حمام وشور داخلي وحمام خارجي</td>
+                                    <td class="py-3"></td>
+                                </tr>
+                                <tr class="border-b border-gray-200">
+                                    <td class="py-3 font-medium">صالون</td>
+                                    <td class="py-3"></td>
+                                </tr>
+                                <tr class="border-b border-gray-200">
+                                    <td class="py-3 font-medium"> سماعة</td>
+                                    <td class="py-3"></td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 font-medium">بركة اطفال</td>
+                                    <td class="py-3"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <!-- Amenities List -->
+                    <div class="bg-white p-6 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="200">
+                        <h3 class="text-xl font-bold mb-4 text-leaf-green">المرافق المتوفرة</h3>
+                        <ul class="grid grid-cols-1 md:grid-cols-2 gap-y-3">
+                            <li class="flex items-center">
+                                <i class="fas fa-swimming-pool amenity-icon"></i>
+                                <span>مسبح خاص</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-wifi amenity-icon"></i>
+                                <span>واي فاي مجاني</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-tv amenity-icon"></i>
+                                <span>تلفزيون </span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-snowflake amenity-icon"></i>
+                                <span>تكييف </span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-utensils amenity-icon"></i>
+                                <span>مطبخ مجهز</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-parking amenity-icon"></i>
+                                <span>موقف سيارات خاص</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-couch amenity-icon"></i>
+                                <span>جلسة خارجية</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-grill amenity-icon"></i>
+                                <span>منطقة شواء</span>
+                            </li>
+            
+                            <li class="flex items-center">
+                                <i class="fas fa-shield-alt amenity-icon"></i>
+                                <span>أمن 24 ساعة</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+       
+        <!-- Location Map -->
+        <section class="py-12 bg-sky-blue bg-opacity-10">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-8 text-leaf-green" data-aos="fade-up">الموقع</h2>
+                
+                <div class="max-w-4xl mx-auto rounded-lg overflow-hidden shadow-xl" data-aos="fade-up" data-aos-delay="100">
+                   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3373.9383102200763!2d35.3649882!3d32.259741999999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151ce523dc629883%3A0x9b606e8508ec015e!2z2LTYp9mE2YrZh9in2Kog2KfZhNmF2LLYsdi52KkgQWxtYXpyYWEgQ2hhbGV0cw!5e0!3m2!1sar!2s!4v1750592572092!5m2!1sar!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                
+                <div class="max-w-4xl mx-auto mt-6 bg-white p-6 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-xl font-bold mb-4 text-leaf-green">كيفية الوصول</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-car mt-1 ml-2 text-sky-blue"></i>
+                            <span>30 دقيقة من مركز المدينة نابلس</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 ml-2 text-sky-blue"></i>
+                            <span>15 دقيقة من مخيم بلاطه</span>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Reviews Section -->
+        <section class="py-12 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-8 text-leaf-green" data-aos="fade-up">آراء الضيوف</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                    <!-- Review 1 -->
+                    <div class="bg-cream p-6 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="100">
+                        <div class="flex items-center mb-4">
+                            <div class="text-yellow-400 flex">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="mr-2 text-gray-600">5.0</span>
+                        </div>
+                        <p class="text-gray-700 mb-4">"تجربة رائعة في شاليه ، المكان نظيف جداً والخدمة ممتازة. المسبح الخاص كان مثالياً لعائلتنا. سنعود بالتأكيد!"</p>
+                        <div class="flex items-center">
+                            <img src="../images/avatar.jpg" alt="صورة العميل" class="w-10 h-10 rounded-full ml-3">
+                            <div>
+                                <h4 class="font-bold">أحمد محمد</h4>
+                                <p class="text-gray-600 text-sm">مايو 2025</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Review 2 -->
+                    <div class="bg-cream p-6 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="200">
+                        <div class="flex items-center mb-4">
+                            <div class="text-yellow-400 flex">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="mr-2 text-gray-600">4.5</span>
+                        </div>
+                        <p class="text-gray-700 mb-4">"الشاليه جميل جداً والإطلالة رائعة على البحر. المكان نظيف ومجهز بكل ما تحتاجه. الموظفون متعاونون وودودون. سأعود مرة أخرى بالتأكيد."</p>
+                        <div class="flex items-center">
+                            <img src="../images/avatar.jpg" alt="صورة العميل" class="w-10 h-10 rounded-full ml-3">
+                            <div>
+                                <h4 class="font-bold">سارة عبدالله</h4>
+                                <p class="text-gray-600 text-sm">أبريل 2025</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Review 3 -->
+                    <div class="bg-cream p-6 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="300">
+                        <div class="flex items-center mb-4">
+                            <div class="text-yellow-400 flex">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="mr-2 text-gray-600">5.0</span>
+                        </div>
+                        <p class="text-gray-700 mb-4">"من أفضل الأماكن التي أقمت فيها. الشاليه نظيف جداً ومجهز بكل شيء. المسبح رائع والجلسة الخارجية مريحة. أنصح به بشدة للعائلات."</p>
+                        <div class="flex items-center">
+                            <img src="../images/avatar.jpg" alt="صورة العميل" class="w-10 h-10 rounded-full ml-3">
+                            <div>
+                                <h4 class="font-bold">خالد العمري</h4>
+                                <p class="text-gray-600 text-sm">مارس 2025</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Review 4 -->
+                    <div class="bg-cream p-6 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="400">
+                        <div class="flex items-center mb-4">
+                            <div class="text-yellow-400 flex">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span class="mr-2 text-gray-600">4.0</span>
+                        </div>
+                        <p class="text-gray-700 mb-4">"مكان جميل وهادئ. الشاليه مريح والمسبح نظيف. الخدمة جيدة والموظفون متعاونون. أتمنى لو كان هناك المزيد من الأنشطة الترفيهية."</p>
+                        <div class="flex items-center">
+                            <img src="../images/avatar.jpg" alt="صورة العميل" class="w-10 h-10 rounded-full ml-3">
+                            <div>
+                                <h4 class="font-bold">نورة السعيد</h4>
+                                <p class="text-gray-600 text-sm">فبراير 2025</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Related Units -->
+        <section class="py-12 bg-sky-blue bg-opacity-10">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-8 text-leaf-green" data-aos="fade-up">وحدات أخرى قد تعجبك</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <!-- Chalet 2 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:shadow-xl hover:-translate-y-2" data-aos="fade-up" data-aos-delay="100">
+                        <img src="../images/chalet1.jpg" alt="شاليه 2" class="w-full h-64 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2 text-leaf-green">شاليه 1</h3>
+                            <p class="text-gray-700 mb-4">شاليه عصري بتصميم أنيق وجلسات خارجية مظللة، يوفر أجواء هادئة وخدمات متكاملة لإقامة مريحة.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-sky-blue bg-opacity-20 text-sky-blue px-3 py-1 rounded-full text-sm">جلسات خارجية</span>
+                                <span class="bg-sky-blue bg-opacity-20 text-sky-blue px-3 py-1 rounded-full text-sm">مطبخ مجهز</span>
+                                <span class="bg-sky-blue bg-opacity-20 text-sky-blue px-3 py-1 rounded-full text-sm">2 غرف نوم</span>
+                            </div>
+                            <a href="chalet1.html" class="inline-block bg-leaf-green hover:bg-green-700 text-white font-medium py-2 px-4 rounded transition duration-300">
+                                عرض التفاصيل
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Villa -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:shadow-xl hover:-translate-y-2" data-aos="fade-up" data-aos-delay="200">
+                        <img src="../images/villa.jpg" alt="فيلا المزرعة" class="w-full h-64 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2 text-leaf-green">فيلا المزرعة</h3>
+                            <p class="text-gray-700 mb-4">فيلا فاخرة واسعة محاطة بالمساحات الخضراء، مثالية للعائلات الكبيرة والمناسبات الخاصة.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-sky-blue bg-opacity-20 text-sky-blue px-3 py-1 rounded-full text-sm">مسبح كبير</span>
+                                <span class="bg-sky-blue bg-opacity-20 text-sky-blue px-3 py-1 rounded-full text-sm">حديقة خاصة</span>
+                                <span class="bg-sky-blue bg-opacity-20 text-sky-blue px-3 py-1 rounded-full text-sm">5 غرف نوم</span>
+                            </div>
+                            <a href="villa.html" class="inline-block bg-leaf-green hover:bg-green-700 text-white font-medium py-2 px-4 rounded transition duration-300">
+                                عرض التفاصيل
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- About -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">شاليهات المزرعة</h3>
+                    <p class="mb-4">وجهتك المثالية للاستجمام والراحة وسط الطبيعة الخلابة مع خدمات فندقية متميزة.</p>
+                    <div class="flex space-x-4 space-x-reverse">
+                        <a href="https://www.facebook.com/almazraachalets?locale=ar_AR" class="text-white hover:text-sky-blue transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-sky-blue transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-sky-blue transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-sky-blue transition duration-300">
+                            <i class="fab fa-snapchat-ghost"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">روابط سريعة</h3>
+                    <ul class="space-y-2">
+                        <li><a href="../index.html" class="hover:text-sky-blue transition duration-300">الرئيسية</a></li>
+                        <li><a href="about.html" class="hover:text-sky-blue transition duration-300">من نحن</a></li>
+                        <li><a href="booking.html" class="hover:text-sky-blue transition duration-300">الحجوزات</a></li>
+                        <li><a href="contact.html" class="hover:text-sky-blue transition duration-300">تواصل معنا</a></li>
+                        <li><a href="#" class="hover:text-sky-blue transition duration-300">الأسئلة الشائعة</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Our Units -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">وحداتنا</h3>
+                    <ul class="space-y-2">
+                        <li><a href="chalet1.html" class="hover:text-sky-blue transition duration-300">شاليه 1</a></li>
+                        <li><a href="chalet2.html" class="hover:text-sky-blue transition duration-300">شاليه 2</a></li>
+                        <li><a href="villa.html" class="hover:text-sky-blue transition duration-300">فيلا المزرعة</a></li>
+                        <li><a href="#" class="hover:text-sky-blue transition duration-300">العروض الخاصة</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">معلومات التواصل</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 ml-2"></i>
+                            <span>نابلس , الاغوار </span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt ml-2"></i>
+                            <span>+972 59-965-2959</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope ml-2"></i>
+                            <span>info@mazraa-chalets.com</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-clock ml-2"></i>
+                            <span>متاح 24/7</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr class="border-gray-700 my-8">
+            
+            <div class="text-center">
+                <p>&copy; 2025 شاليهات المزرعة. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scripts -->
+    <!-- AOS Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <!-- Swiper Slider JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    
+    <!-- GSAP Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="../js/main.js"></script>
+    
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+        
+        // Initialize Swiper
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+        });
+        
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Availability Form
+        const availabilityForm = document.getElementById('availability-form');
+        const availabilityResult = document.getElementById('availability-result');
+        
+        availabilityForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // In a real application, you would check availability with an API
+            // For demo purposes, just show the result
+            availabilityResult.classList.remove('hidden');
+            
+            // Scroll to result
+            availabilityResult.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+        
+        // GSAP Animations
+        gsap.registerPlugin(ScrollTrigger);
+        
+        gsap.from(".amenity-icon", {
+            scrollTrigger: {
+                trigger: ".amenity-icon",
+                start: "top 80%",
+                toggleActions: "play none none none"
+            },
+            scale: 0,
+            opacity: 0,
+            duration: 0.5,
+            stagger: 0.1,
+            ease: "back.out(1.7)"
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تواصل معنا - شاليهات المزرعة</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'sky-blue': '#6AADDE',  /* الأزرق الفاتح */
+                        'dark-blue': '#1A4B84', /* الأزرق الغامق */
+                        'light-red': '#FF6B6B', /* الأحمر الفاتح */
+                        'dark-yellow': '#E6B800', /* الأصفر الغامق */
+                        'cream': '#FFFDD0',
+                    },
+                    fontFamily: {
+                        'tajawal': ['Tajawal', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts - Tajawal (خط عربي جميل) -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+    
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        .contact-info-card {
+            transition: all 0.3s ease;
+        }
+        
+        .contact-info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .form-input {
+            @apply w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-blue focus:border-transparent;
+        }
+        
+        .form-label {
+            @apply block text-gray-700 font-medium mb-2;
+        }
+        
+        .form-group {
+            @apply mb-4;
+        }
+        
+        .error-message {
+            @apply text-red-500 text-sm mt-1;
+        }
+    </style>
+</head>
+<body class="bg-cream">
+    <!-- Header & Navigation -->
+    <header>
+        <!-- Navigation Bar -->
+        <nav class="bg-white bg-opacity-90 shadow-md sticky top-0 z-50">
+            <div class="container mx-auto px-4">
+                <div class="flex justify-between items-center py-4">
+                    <!-- Logo -->
+                    <div class="text-2xl font-bold text-leaf-green">
+                        <a href="../index.html" class="flex items-center">
+                            <img src="../images/logo.png" alt="شعار شاليهات المزرعة" class="h-12 ml-2">
+                            <span>شاليهات المزرعة</span>
+                        </a>
+                    </div>
+                    
+                    <!-- Desktop Navigation -->
+                    <div class="hidden md:flex space-x-8 space-x-reverse">
+                        <a href="../index.html" class="text-gray-700 font-medium hover:text-sky-blue transition duration-300">الرئيسية</a>
+                        <a href="chalet1.html" class="text-gray-700 font-medium hover:text-sky-blue transition duration-300">شاليه 1</a>
+                        <a href="chalet2.html" class="text-gray-700 font-medium hover:text-sky-blue transition duration-300">شاليه 2</a>
+                        <a href="villa.html" class="text-gray-700 font-medium hover:text-sky-blue transition duration-300">فيلا المزرعة</a>
+                        <a href="booking.html" class="text-gray-700 font-medium hover:text-sky-blue transition duration-300">الحجوزات</a>
+                        <a href="about.html" class="text-gray-700 font-medium hover:text-sky-blue transition duration-300">من نحن</a>
+                        <a href="contact.html" class="text-leaf-green font-medium hover:text-sky-blue transition duration-300">تواصل معنا</a>
+                    </div>
+                    
+                    <!-- Mobile Menu Button -->
+                    <div class="md:hidden">
+                        <button id="mobile-menu-button" class="text-gray-700 hover:text-sky-blue focus:outline-none">
+                            <i class="fas fa-bars text-2xl"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Mobile Navigation Menu (Hidden by default) -->
+                <div id="mobile-menu" class="md:hidden hidden pb-4">
+                    <a href="../index.html" class="block py-2 text-gray-700 font-medium hover:text-sky-blue">الرئيسية</a>
+                    <a href="chalet1.html" class="block py-2 text-gray-700 font-medium hover:text-sky-blue">شاليه 1</a>
+                    <a href="chalet2.html" class="block py-2 text-gray-700 font-medium hover:text-sky-blue">شاليه 2</a>
+                    <a href="villa.html" class="block py-2 text-gray-700 font-medium hover:text-sky-blue">فيلا المزرعة</a>
+                    <a href="booking.html" class="block py-2 text-gray-700 font-medium hover:text-sky-blue">الحجوزات</a>
+                    <a href="about.html" class="block py-2 text-gray-700 font-medium hover:text-sky-blue">من نحن</a>
+                    <a href="contact.html" class="block py-2 text-leaf-green font-medium">تواصل معنا</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Main Content -->
+    <main>
+        <!-- Contact Title Section -->
+        <section class="py-12 bg-white">
+            <div class="container mx-auto px-4">
+                <h1 class="text-4xl font-bold text-center text-leaf-green mb-6" data-aos="fade-up">تواصل معنا</h1>
+                <p class="text-xl text-center text-gray-700 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                    نحن هنا للإجابة على استفساراتكم ومساعدتكم في حجز إقامتكم المثالية. لا تترددوا في التواصل معنا بأي من الطرق التالية.
+                </p>
+            </div>
+        </section>
+        
+        <!-- Contact Information -->
+        <section class="py-12 bg-sky-blue bg-opacity-10">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                    <!-- Phone -->
+                    <div class="contact-info-card bg-white p-6 rounded-lg shadow-md text-center" data-aos="fade-up" data-aos-delay="100">
+                        <div class="text-sky-blue text-4xl mb-4">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-leaf-green">اتصل بنا</h3>
+                        <p class="text-gray-700 mb-2">للحجز والاستفسارات العامة:</p>
+                        <p class="text-gray-700 font-bold">+972 59-965-2959
+                        
+                    </div>
+                    
+                    <!-- Email -->
+                    <div class="contact-info-card bg-white p-6 rounded-lg shadow-md text-center" data-aos="fade-up" data-aos-delay="200">
+                        <div class="text-sky-blue text-4xl mb-4">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-leaf-green">راسلنا</h3>
+                        <p class="text-gray-700 mb-2">للحجوزات:</p>
+                        <p class="text-gray-700 font-bold">booking@mazraa-chalets.com</p>
+                        <p class="text-gray-700 mt-2 mb-2">للاستفسارات العامة:</p>
+                        <p class="text-gray-700 font-bold">info@mazraa-chalets.com</p>
+                    </div>
+                    
+                    <!-- Location -->
+                    <div class="contact-info-card bg-white p-6 rounded-lg shadow-md text-center" data-aos="fade-up" data-aos-delay="300">
+                        <div class="text-sky-blue text-4xl mb-4">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-leaf-green">زورنا</h3>
+                        <p class="text-gray-700 mb-2">العنوان:</p>
+                        <p class="text-gray-700 font-bold">نابلس</p>
+                        <p class="text-gray-700 mt-2 mb-2">ساعات العمل:</p>
+                        <p class="text-gray-700 font-bold">متاح 24/7</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact Form & Map -->
+        <section class="py-12 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                    <!-- Contact Form -->
+                    <div data-aos="fade-left">
+                        <h2 class="text-2xl font-bold mb-6 text-leaf-green">أرسل رسالة</h2>
+                        
+                        <form id="contact-form" class="space-y-6">
+                            <div class="form-group">
+                                <label for="name" class="form-label">الاسم الكامل <span class="text-red-500">*</span></label>
+                                <input type="text" id="name" class="form-input" required>
+                                <div class="error-message"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email" class="form-label">البريد الإلكتروني <span class="text-red-500">*</span></label>
+                                <input type="email" id="email" class="form-input" required>
+                                <div class="error-message"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone" class="form-label">رقم الجوال</label>
+                                <input type="tel" id="phone" class="form-input">
+                                <div class="error-message"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject" class="form-label">الموضوع <span class="text-red-500">*</span></label>
+                                <select id="subject" class="form-input" required>
+                                    <option value="">اختر الموضوع</option>
+                                    <option value="booking">استفسار عن الحجز</option>
+                                    <option value="info">معلومات عامة</option>
+                                    <option value="feedback">تقديم ملاحظات</option>
+                                    <option value="complaint">شكوى</option>
+                                    <option value="other">أخرى</option>
+                                </select>
+                                <div class="error-message"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message" class="form-label">الرسالة <span class="text-red-500">*</span></label>
+                                <textarea id="message" class="form-input h-32 resize-none" required></textarea>
+                                <div class="error-message"></div>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-sky-blue hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105">
+                                إرسال الرسالة
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <!-- Map -->
+                    <div data-aos="fade-right">
+                        <h2 class="text-2xl font-bold mb-6 text-leaf-green">موقعنا</h2>
+                        
+                        <div class="rounded-lg overflow-hidden shadow-xl">
+                       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3373.9383102200763!2d35.3649882!3d32.259741999999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151ce523dc629883%3A0x9b606e8508ec015e!2z2LTYp9mE2YrZh9in2Kog2KfZhNmF2LLYsdi52KkgQWxtYXpyYWEgQ2hhbGV0cw!5e0!3m2!1sar!2s!4v1750592572092!5m2!1sar!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                        </div>
+                        
+                        
+            </div>
+        </section>
+        
+        <!-- Social Media Section -->
+        <section class="py-12 bg-sky-blue bg-opacity-10">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-8 text-leaf-green" data-aos="fade-up">تابعنا على وسائل التواصل الاجتماعي</h2>
+                
+                <div class="flex flex-wrap justify-center gap-8 max-w-3xl mx-auto">
+                    <!-- Facebook -->
+                    <a href="#" class="social-link flex flex-col items-center transition duration-300 transform hover:scale-110" data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-16 h-16 rounded-full bg-white shadow-md flex items-center justify-center text-3xl text-blue-600 mb-2">
+                            <i class="fab fa-facebook-f"></i>
+                        </div>
+                        <span class="text-gray-700 font-medium">Facebook</span>
+                    </a>
+                    
+                    <!-- Twitter -->
+                    <a href="#" class="social-link flex flex-col items-center transition duration-300 transform hover:scale-110" data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-16 h-16 rounded-full bg-white shadow-md flex items-center justify-center text-3xl text-blue-400 mb-2">
+                            <i class="fab fa-twitter"></i>
+                        </div>
+                        <span class="text-gray-700 font-medium">Twitter</span>
+                    </a>
+                    
+                    <!-- Instagram -->
+                    <a href="#" class="social-link flex flex-col items-center transition duration-300 transform hover:scale-110" data-aos="fade-up" data-aos-delay="300">
+                        <div class="w-16 h-16 rounded-full bg-white shadow-md flex items-center justify-center text-3xl text-pink-600 mb-2">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <span class="text-gray-700 font-medium">Instagram</span>
+                    </a>
+                    
+                    <!-- Snapchat -->
+                    <a href="#" class="social-link flex flex-col items-center transition duration-300 transform hover:scale-110" data-aos="fade-up" data-aos-delay="400">
+                        <div class="w-16 h-16 rounded-full bg-white shadow-md flex items-center justify-center text-3xl text-yellow-400 mb-2">
+                            <i class="fab fa-snapchat-ghost"></i>
+                        </div>
+                        <span class="text-gray-700 font-medium">Snapchat</span>
+                    </a>
+                    
+                    <!-- WhatsApp -->
+                    <a href="#" class="social-link flex flex-col items-center transition duration-300 transform hover:scale-110" data-aos="fade-up" data-aos-delay="500">
+                        <div class="w-16 h-16 rounded-full bg-white shadow-md flex items-center justify-center text-3xl text-green-500 mb-2">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <span class="text-gray-700 font-medium">WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+      
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- About -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">شاليهات المزرعة</h3>
+                    <p class="mb-4">وجهتك المثالية للاستجمام والراحة وسط الطبيعة الخلابة مع خدمات فندقية متميزة.</p>
+                    <div class="flex space-x-4 space-x-reverse">
+                        <a href="#" class="text-white hover:text-sky-blue transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-sky-blue transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-sky-blue transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-sky-blue transition duration-300">
+                            <i class="fab fa-snapchat-ghost"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">روابط سريعة</h3>
+                    <ul class="space-y-2">
+                        <li><a href="../index.html" class="hover:text-sky-blue transition duration-300">الرئيسية</a></li>
+                        <li><a href="about.html" class="hover:text-sky-blue transition duration-300">من نحن</a></li>
+                        <li><a href="booking.html" class="hover:text-sky-blue transition duration-300">الحجوزات</a></li>
+                        <li><a href="contact.html" class="hover:text-sky-blue transition duration-300">تواصل معنا</a></li>
+                        <li><a href="#" class="hover:text-sky-blue transition duration-300">الأسئلة الشائعة</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Our Units -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">وحداتنا</h3>
+                    <ul class="space-y-2">
+                        <li><a href="chalet1.html" class="hover:text-sky-blue transition duration-300">شاليه 1</a></li>
+                        <li><a href="chalet2.html" class="hover:text-sky-blue transition duration-300">شاليه 2</a></li>
+                        <li><a href="villa.html" class="hover:text-sky-blue transition duration-300">فيلا المزرعة</a></li>
+                        <li><a href="#" class="hover:text-sky-blue transition duration-300">العروض الخاصة</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">معلومات التواصل</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 ml-2"></i>
+                            <spanspan>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt ml-2"></i>
+                            <span>+972 59-965-2959</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope ml-2"></i>
+                            <span>info@mazraa-chalets.com</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-clock ml-2"></i>
+                            <span>متاح 24/7</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr class="border-gray-700 my-8">
+            
+            <div class="text-center">
+                <p>&copy; 2025 شاليهات المزرعة. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scripts -->
+    <!-- AOS Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <!-- GSAP Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="../js/main.js"></script>
+    
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+        
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Contact Form Validation
+        const contactForm = document.getElementById('contact-form');
+        
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            let isValid = true;
+            
+            // Validate required fields
+            const requiredFields = contactForm.querySelectorAll('[required]');
+            requiredFields.forEach(field => {
+                if (!field.value) {
+                    showError(field, 'هذا الحقل مطلوب');
+                    isValid = false;
+                } else {
+                    clearError(field);
+                }
+            });
+            
+            // Validate email format
+            const emailField = document.getElementById('email');
+            if (emailField.value && !/^\S+@\S+\.\S+$/.test(emailField.value)) {
+                showError(emailField, 'يرجى إدخال بريد إلكتروني صحيح');
+                isValid = false;
+            }
+            
+            // Validate phone format (if provided)
+            const phoneField = document.getElementById('phone');
+            if (phoneField.value && !/^\d{10,}$/.test(phoneField.value.replace(/\D/g, ''))) {
+                showError(phoneField, 'يرجى إدخال رقم هاتف صحيح');
+                isValid = false;
+            }
+            
+            // If form is valid, show success message
+            if (isValid) {
+                // Here you would typically submit the form to a server
+                // For demo purposes, just show a success message
+                showContactSuccess();
+            }
+        });
+        
+        // Show error message
+        function showError(input, message) {
+            const formGroup = input.closest('.form-group');
+            const errorElement = formGroup.querySelector('.error-message');
+            
+            errorElement.textContent = message;
+            input.classList.add('border-red-500');
+        }
+        
+        // Clear error message
+        function clearError(input) {
+            const formGroup = input.closest('.form-group');
+            const errorElement = formGroup.querySelector('.error-message');
+            
+            errorElement.textContent = '';
+            input.classList.remove('border-red-500');
+        }
+        
+        // Show contact form success message
+        function showContactSuccess() {
+            // Hide the form
+            contactForm.innerHTML = `
+                <div class="text-center py-8">
+                    <div class="text-6xl text-green-500 mb-4">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-leaf-green mb-4">تم إرسال رسالتك بنجاح!</h3>
+                    <p class="text-gray-700 mb-6">شكراً لتواصلك معنا. سنقوم بالرد عليك في أقرب وقت ممكن.</p>
+                </div>
+            `;
+        }
+        
+        // Newsletter Form
+        const newsletterForm = document.getElementById('newsletter-form');
+        
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Here you would typically submit the form to a server
+            // For demo purposes, just show a success message
+            this.innerHTML = `
+                <div class="text-center py-2 w-full">
+                    <div class="text-2xl mb-2">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <p class="font-bold">تم الاشتراك بنجاح!</p>
+                    <p class="text-sm mt-1">شكراً لاشتراكك في نشرتنا البريدية.</p>
+                </div>
+            `;
+        });
+        
+        // FAQ Accordion
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', function() {
+                const answer = this.nextElementSibling;
+                const icon = this.querySelector('i');
+                
+                // Toggle answer visibility
+                answer.classList.toggle('hidden');
+                
+                // Rotate icon
+                if (answer.classList.contains('hidden')) {
+                    icon.style.transform = 'rotate(0deg)';
+                } else {
+                    icon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+        
+        // GSAP Animations
+        gsap.registerPlugin(ScrollTrigger);
+        
+        // Social links animation
+        gsap.from(".social-link", {
+            scrollTrigger: {
+                trigger: ".social-link",
+                start: "top 80%",
+                toggleActions: "play none none none"
+            },
+            opacity: 0,
+            y: 30,
+            stagger: 0.1,
+            duration: 0.5,
+            ease: "power2.out"
+        });
+    </script>
+</body>
+</html>
